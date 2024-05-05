@@ -20,6 +20,8 @@ block_domains:
   - twitter.com
   - youtube.com
   - youtu.be
+  # slow
+  - feedpress.me
 
 block_posts:
   # Block alexsci.com: Hacker News Load Spike

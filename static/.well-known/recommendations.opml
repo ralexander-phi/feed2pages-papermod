@@ -6,5 +6,13 @@
   <body>
     <outline text="alexsci.com blog" type="rss" xmlUrl="https://alexsci.com/blog/rss.xml" />
     <outline text="manton.org" type="rss" xmlUrl="https://www.manton.org/feed.xml" />
+    <outline text="scripting.com" type="rss" xmlUrl="http://scripting.com/rss.xml" />
+    <outline text="philbowell.me" type="rss" xmlUrl="https://philbowell.me/feed.xml" />
+    <outline text="lmika.org" type="rss" xmlUrl="https://lmika.org/feed.xml" />
+    <outline text="blog.jim-nielsen.com" type="rss" xmlUrl="https://blog.jim-nielsen.com/feed.xml" />
+    <outline text="solene" type="rss" xmlUrl="https://dataswamp.org/~solene/rss.xml" />
+    <outline text="daniel.haxx.se" type="rss" xmlUrl="https://daniel.haxx.se/blog/feed/" />
+    <outline text="tomhazledine" type="rss" xmlUrl="https://tomhazledine.com/feed.xml" />
+    <outline text="words.filippo.io" type="rss" xmlUrl="https://words.filippo.io/rss/" />
   </body>
 </opml>
