@@ -1,0 +1,80 @@
+{{- define "main" }}
+
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>
+    {{ .Title }}
+  </h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description | markdownify }}
+  </div>
+  {{- end }}
+</header>
+
+{{- if .Content }}
+  <div class="post-content">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+  </div>
+{{- end }}
+
+{{- $pages := .RegularPages }}
+{{- $paginator := .Paginate $pages }}
+
+{{- range $index, $page := $paginator.Pages }}
+  {{- $class := "post-entry" }}
+
+  {{/* If you want to block this post from your feed, you can use this GUID */}}
+  <article class="{{ $class }}" id="{{ $page.Params.post.guid }}">
+    <header class="entry-header">
+      <h2 class="entry-hint-parent">
+        {{- .Title -}}
+      </h2>
+    </header>
+    <div class="entry-content"></div>
+    <footer class="entry-footer">
+      {{- $scratch := newScratch }}
+
+      {{- if not .Date.IsZero -}}
+        {{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
+      {{- end }}
+
+      {{- $scratch.Add "meta" (slice (.Description)) -}}
+
+      {{- with ($scratch.Get "meta") }}
+        {{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
+      {{- end -}}
+      <div>
+      Recommended by: {{ delimit .Params.recommended_by ", " ", and " }}
+      </div>
+    </footer>
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Params.link }}"></a>
+  </article>
+{{- end }}
+
+{{- if gt $paginator.TotalPages 1 }}
+  <footer class="page-footer">
+    <nav class="pagination">
+      {{- if $paginator.HasPrev }}
+      <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
+        «&nbsp;{{ i18n "prev_page" }}&nbsp;
+        {{- if (.Param "ShowPageNums") }}
+        {{- sub $paginator.PageNumber 1 }}/{{ $paginator.TotalPages }}
+        {{- end }}
+      </a>
+      {{- end }}
+      {{- if $paginator.HasNext }}
+      <a class="next" href="{{ $paginator.Next.URL | absURL }}">
+        {{- i18n "next_page" }}&nbsp;
+        {{- if (.Param "ShowPageNums") }}
+        {{- add 1 $paginator.PageNumber }}/{{ $paginator.TotalPages }}
+        {{- end }}&nbsp;»
+      </a>
+      {{- end }}
+    </nav>
+  </footer>
+{{- end }}
+
+{{- end }}{{- /* end main */ -}}

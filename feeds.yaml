@@ -1,0 +1,26 @@
+# If you host your own you can load it here
+# I.E.: feed_url: https://feedland.com/opml?screenname=robalexdev
+feed_url: file://static/.well-known/recommendations.opml
+
+post_age_limit_days: 500
+max_posts_per_feed: 25
+max_posts: 500
+discover_depth: 2
+max_recommendations_per_feed: 100
+max_recommendations: 1000
+
+block_words:
+  - cryptocurrency
+  - bitcoin
+  - tesla
+
+block_domains:
+  - medium.com
+  - substack.com
+  - twitter.com
+  - youtube.com
+  - youtu.be
+
+block_posts:
+  # Block alexsci.com: Hacker News Load Spike
+  - ce8b62e4-37c3-4132-bb06-f44e22a39907
