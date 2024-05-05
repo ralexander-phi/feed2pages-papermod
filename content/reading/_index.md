@@ -9,4 +9,4 @@ cascade:
     render: never
 ---
 Here's a list of the blog posts I'm reading.
-These are automatically pulled from [the RSS feeds](/following/) I follow.
+These are automatically pulled from [the RSS feeds](../following/) I follow.
