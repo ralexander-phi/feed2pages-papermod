@@ -27,7 +27,7 @@
 
   {{- $class := "post-entry" }}
 
-  <article class="{{ $class }}">
+  <article class="{{ $class }}" id="{{ $page.Params.id }}">
     <header class="entry-header">
       <h2 class="entry-hint-parent">
         {{- .Title -}}
@@ -35,19 +35,9 @@
     </header>
     <div class="entry-content"></div>
     <footer class="entry-footer">
-      {{- $scratch := newScratch }}
-
-      {{- $scratch.Add "meta" (slice (.Description)) -}}
-
-      {{- if not .Date.IsZero -}}
-        {{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date) (.Date | time.Format (default "January 2, 2006" site.Params.DateFormat)))) }}
-      {{- end }}
-
-      {{- with ($scratch.Get "meta") }}
-        {{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
-      {{- end -}}
+      {{ .Description | truncate 90 }}
     </footer>
-    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ default .Params.feed.feedlink .Params.feed.link }}"></a>
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ default .Params.feedlink .Params.link }}"></a>
   </article>
 {{- end }}
 

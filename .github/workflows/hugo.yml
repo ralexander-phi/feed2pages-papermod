@@ -49,7 +49,7 @@ jobs:
       # Add this to your build
       #
       - name: Collect content
-        uses: ralexander-phi/feed2pages-action@0.0.9
+        uses: ralexander-phi/feed2pages-action@0.0.10
 
 
 

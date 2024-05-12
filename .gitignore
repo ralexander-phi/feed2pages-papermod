@@ -1,5 +1,5 @@
 public/
 content/reading/post-*.md
 content/following/feed-*.md
-content/discover/feed-*.md
+content/discover/blogroll-*.md
 .hugo_build.lock

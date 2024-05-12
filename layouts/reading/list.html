@@ -27,13 +27,16 @@
   {{- $class := "post-entry" }}
 
   {{/* If you want to block this post from your feed, you can use this GUID */}}
-  <article class="{{ $class }}" id="{{ $page.Params.post.guid }}">
+  <article class="{{ $class }}" id="{{ $page.Params.id }}">
     <header class="entry-header">
       <h2 class="entry-hint-parent">
         {{- .Title -}}
       </h2>
     </header>
     <div class="entry-content"></div>
+    <footer class="entry-footer">
+      {{- .Description | truncate 90 -}}
+    </footer>
     <footer class="entry-footer">
       {{- $scratch := newScratch }}
 
@@ -49,7 +52,7 @@
         {{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
       {{- end -}}
     </footer>
-    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Params.post.Link }}"></a>
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Params.link }}"></a>
   </article>
 {{- end }}
 
