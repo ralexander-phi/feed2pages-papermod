@@ -8,4 +8,4 @@ cascade:
     list: local
     render: never
 ---
-You can also [browse the content](../reading/) of these feeds or see [which RSS feeds they recommend](../discover/).
+You can also [browse the content]({{< ref "/reading" >}}) of these feeds or see [which RSS feeds they recommend]({{< ref "/discover" >}}).
