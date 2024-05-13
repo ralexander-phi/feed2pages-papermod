@@ -36,9 +36,15 @@
     <div class="entry-content"></div>
     <footer class="entry-footer">
       {{ .Description | truncate 90 }}
-      <div>
-      Recommended by: {{ delimit .Params.recommended_by ", " ", and " }}
-      </div>
+
+      {{- $blogroll := where (where .Site.RegularPages "Section" "network") "Params.destination_url" .Params.feedlink -}}
+      {{- if $blogroll -}}
+        <div>Recommended by:</div>
+        {{ range $blogroll }}
+        <div>{{ .Params.source_url }}</diV>
+        {{- end -}}
+      {{- end -}}
+
     </footer>
     <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ default .Params.feedlink .Params.link }}"></a>
   </article>
