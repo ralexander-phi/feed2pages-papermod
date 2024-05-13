@@ -4,9 +4,9 @@ This is a demo for [Feed2Pages](https://github.com/ralexander-phi/feed2pages), a
 
 The generated content is rendered as three main components:
 
-* [Following](/following/) - A list of the RSS feeds you're subscribed to
-* [Reading](/reading/) - A list of recent posts from your RSS feeds
-* [Discover](/discover/) - RSS feeds recommended by the RSS feeds you follow
+* [Following](following/) - A list of the RSS feeds you're subscribed to
+* [Reading](reading/) - A list of recent posts from your RSS feeds
+* [Discover](discover/) - RSS feeds recommended by the RSS feeds you follow
 
 The tool is backed by [Feed2Pages-action](https://github.com/ralexander-phi/feed2pages-action), a Golang GitHub Actions utility that collects the required information.
 
