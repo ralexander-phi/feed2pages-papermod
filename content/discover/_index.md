@@ -8,4 +8,4 @@ cascade:
     list: local
     render: never
 ---
-Here are RSS feeds recommended by the [feeds I follow](/following).
+Here are RSS feeds recommended by the [feeds I follow]({{< ref "/following" >}}).
