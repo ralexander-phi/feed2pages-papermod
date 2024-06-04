@@ -49,7 +49,7 @@ jobs:
       # Add this to your build
       #
       - name: Collect content
-        uses: ralexander-phi/feed2pages-action@latest
+        uses: ralexander-phi/feed2pages-action@main
 
 
       - name: Build with Hugo
